@@ -1,0 +1,33 @@
+FROM ubuntu
+
+ENV TZ=Europe/Kiev
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install mc nano unixodbc unixodbc-dev -y
+RUN apt-get update && apt-get install -y locales \
+    && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
+    && locale-gen
+
+
+RUN apt-get update
+RUN apt-get install -y apt-utils curl apache2 apache2-utils
+RUN apt-get -y install python3 libapache2-mod-wsgi-py3
+RUN ln /usr/bin/python3 /usr/bin/python
+RUN apt-get -y install python3-pip
+RUN pip install ptvsd
+WORKDIR /var/www/html
+ADD ./site-config.conf /etc/apache2/sites-available/000-default.conf
+#ADD ./requirements.txt /var/www/html
+
+WORKDIR /app
+COPY . /app
+RUN pip install -r requirements.txt
+
+RUN chmod 775 /app/avtosojuz_table/
+RUN chmod 775 /app/avtosojuz_table/logs
+
+RUN chown :www-data /app/avtosojuz_table/
+RUN chown :www-data /app/avtosojuz_table/logs
+EXPOSE 80
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+#cmd ["service", "apache2", "start"]

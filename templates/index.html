@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="ua">
+<head>
+    {% load static%}
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="60">
+    <title>Таблиця</title>
+    <link href="{% static 'main_table/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'main_table/site.css' %}?version={% now "U" %}" rel="stylesheet"/>
+    <script src="{% static 'main_table/modernizr-2.8.3.js' %}"></script>
+
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <td>Авто</td>
+            <td>Модель</td>
+            <td>Статус</td>
+            <td>Початок</td>
+            <td>Завершення</td>
+            <td>Приймальник</td>
+            <td>Механік</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in main %}
+            {%  if not row.10 and not row.9  %}{#not red and not yellow: green#}
+            <tr class="{{ row.11 }}">
+            {% elif not row.10 and row.9 %}{#not red and yellow: yellow#}
+            <tr class="{{ row.9 }}">
+            {% elif row.10 %}
+            <tr class="{{ row.10 }}">{# red: red#}
+            {% elif not row.10 and not row.8 and not row.9 %}
+            <tr>
+            {% endif %}
+
+            <td>{{ row.0 }}</td>
+            <td>{{ row.7 }}</td>
+            <td>{{ row.8 }}</td>
+            <td>{{ row.3|date:"H:i" }}</td>
+            <td>{{ row.5|date:"H:i" }}</td>
+
+            <td>{{ row.1 }}</td>
+            <td>{{ row.2 }}</td>
+            {% endfor %}
+
+        </tr>
+        {% for i in "x"|rjust:"20"%}
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script src="{% static 'main_table/jquery-3.3.1.js' %}"></script>
+
+<script src="{% static 'main_table/bootstrap.js' %}"></script>
+
+</body>
+</html>

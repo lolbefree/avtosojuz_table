@@ -1,0 +1,1 @@
+mod_wsgi-express start-server /app/avtosojuz_table/wsgi.py --user www-data --group www-data --url-alias /static static --port 3000

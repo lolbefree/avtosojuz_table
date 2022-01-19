@@ -1,0 +1,142 @@
+﻿body {
+	/*padding-top: 50px;*/
+    /*padding-bottom: 20px;*/
+	font-size: 25px;
+}
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+	max-width: 280px;
+}
+
+table {
+	color: #070707;
+	width: 100%;
+	/*height: 100%;*/
+	text-align: center;
+	/*position: fixed;*/
+}
+
+thead td {
+	background-color: #5d7180;
+	border: 2px solid #576874;
+	font-size: 32px;
+
+}
+
+tbody > tr:nth-of-type(odd),
+tbody > tr:nth-of-type(odd) > td {
+	background-color: #647f93;
+	border: 2px solid #52728b;
+}
+
+
+
+
+/*i dont understand*/
+/*tbody > tr,*/
+/*tbody > tr > td {*/
+/*	background-color: #113251;*/
+/*	border: 2px solid #184772;*/
+/*}*/
+
+/*tr > td {*/
+/*	padding-left: 15px;*/
+/*	height: 42px;*/
+/*}*/
+
+/*tbody > tr.specialstatus-yellow,*/
+/*tbody > tr.specialstatus-yellow:nth-of-type(odd),*/
+/*tbody > tr.specialstatus-yellow > td,*/
+/*tbody > tr.specialstatus-yellow:nth-of-type(odd) > td {*/
+/*	background-color: #fb7b32;*/
+/*	color: #000;*/
+/*	border: 2px solid #c7642c;*/
+/*}*/
+
+/*	tr.specialstatus-yellow > td {*/
+/*		border: 2px solid #c7642c;*/
+/*	}*/
+
+
+
+
+tbody > tr,
+tbody > tr > td {
+	background-color: #5e717f;
+	border: 2px solid #5a6a76;
+}
+
+tr > td {
+	padding-left: 15px;
+	height: 42px;
+}
+
+tbody > tr.yellow,
+tbody > tr.yellow:nth-of-type(odd),
+tbody > tr.yellow > td,
+tbody > tr.yellow:nth-of-type(odd) > td {
+	background-color: #e0b05b;
+	color: #000;
+	border: 2px solid #c19953;
+}
+
+	/*tr.yellow > td {*/
+	/*	border: 2px solid darkorange;*/
+	/*}*/
+
+tbody > tr.red,
+tbody > tr.red:nth-of-type(odd),
+tbody > tr.red > td,
+tbody > tr.red:nth-of-type(odd) > td {
+	background-color: #e85a5a;
+	color: #000;
+	border: 2px solid #d25858;
+}
+
+	/*tr.red > td {*/
+	/*	border: 2px solid darkred;*/
+	/*}*/
+
+tbody > tr.green,
+tbody > tr.green:nth-of-type(odd),
+tbody > tr.green > td,
+tbody > tr.green:nth-of-type(odd) > td {
+	background-color: #2f8d2f;
+	color: #000;
+	border: 2px solid #2c7f2c;
+}
+
+	/*tr.green > td {*/
+	/*	border: 2px solid green;*/
+	/*}*/
+
+
+/*.yellow {*/
+/*	background-color: #ffc006 !important;*/
+/*	border: 2px solid #ffc006 !important;*/
+/*}*/
+/*.red {*/
+/*	background-color: #f50505 !important;*/
+/*	border: 2px solid #f50505 !important;*/
+/*}*/
+/*.green {*/
+/*	background-color: #008000FF !important;*/
+/*	border: 2px solid #008000FF !important;*/
+/*}*/

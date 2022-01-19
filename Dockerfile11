@@ -1,0 +1,26 @@
+FROM python:3
+# python libraries
+
+RUN pip3 install --upgrade pip
+
+RUN apt-get update && apt-get install mc nano unixodbc unixodbc-dev -y
+
+# add sample code
+WORKDIR /app
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+RUN apt-get install apache2 apache2-dev -y
+RUN pip install mod_wsgi
+
+COPY ./requirements.txt /app/requirements.txt
+RUN pip install --upgrade pip
+RUN pip install  -r requirements.txt
+RUN apt-get update && apt-get install -y locales \
+    && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
+    && locale-gen
+
+COPY . /app
+EXPOSE 3000
+cmd mod_wsgi-express start-server /app/avtosojuz_table/wsgi.py --user www-data --group www-data --url-alias /static static --port 3000
